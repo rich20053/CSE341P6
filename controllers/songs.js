@@ -14,6 +14,10 @@ const getAll = async (req, res, next) => {
 
 // Return one song by id
 const getSingle = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid contact id to update a contact");
+  }
+
   const userId = new ObjectId(req.params.id);
 
   const result = await mongodb.getDb().db("music").collection('songs').find({ _id: userId });
@@ -46,6 +50,9 @@ const createSong = async (req, res, next) => {
   
 // Update a single Song
 const updateSong = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid contact id to update a contact");
+  }
   
   const userId = new ObjectId(req.params.id);
 
@@ -69,6 +76,10 @@ const updateSong = async (req, res, next) => {
 
 // Delete one song
 const deleteSong = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid contact id to update a contact");
+  }
+
   const userId = new ObjectId(req.params.id);
   
   const response = await mongodb.getDb().db("music").collection('songs').deleteOne({ _id: userId }, true);

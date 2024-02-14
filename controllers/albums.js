@@ -15,6 +15,10 @@ const getAll = async (req, res, next) => {
 
 // Return one album by id
 const getSingle = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid contact id to update a contact");
+  }
+
   const userId = new ObjectId(req.params.id);
 
   const result = await mongodb.getDb().db("music").collection('albums').find({ _id: userId });
@@ -94,7 +98,10 @@ const createAlbum = async (req, res, next) => {
   
 // Update a single album
 const updateAlbumById = async (req, res, next) => {
-  
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid contact id to update a contact");
+  }
+
   const userId = new ObjectId(req.params.id);
 
   // Update an album
@@ -121,6 +128,10 @@ const updateAlbumById = async (req, res, next) => {
 
 // Delete one albums
 const deleteAlbum = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must use a valid contact id to update a contact");
+  }
+
   const userId = new ObjectId(req.params.id);
   
   const response = await mongodb.getDb().db("music").collection('albums').deleteOne({ _id: userId }, true);
