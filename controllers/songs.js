@@ -1,4 +1,4 @@
-const { isNull } = require('util');
+//const { isNull } = require('util');
 const mongodb = require('../models/connect');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -16,6 +16,7 @@ const getAll = async (req, res, next) => {
 const getSingle = async (req, res, next) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid contact id to update a contact");
+    return;
   }
 
   const userId = new ObjectId(req.params.id);
@@ -52,6 +53,7 @@ const createSong = async (req, res, next) => {
 const updateSong = async (req, res, next) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid contact id to update a contact");
+    return;
   }
   
   const userId = new ObjectId(req.params.id);
@@ -78,6 +80,7 @@ const updateSong = async (req, res, next) => {
 const deleteSong = async (req, res, next) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid contact id to update a contact");
+    return;
   }
 
   const userId = new ObjectId(req.params.id);

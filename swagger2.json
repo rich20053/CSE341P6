@@ -25,7 +25,7 @@
     },
     "/artists/": {
       "get": {
-        "description": "Get all artists.",
+        "description": "",
         "tags": 
           ["Artists"],
         "produces": [
@@ -38,9 +38,9 @@
         }
       },
       "post": {
-        "description": "Create/Insert a new artist.",
+        "description": "",
         "tags": 
-          ["Artists"],
+        ["Artists"],
         "parameters": [
           {
             "name": "body",
@@ -61,9 +61,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "412": {
-            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -73,9 +70,9 @@
     },
     "/artists/{id}": {
       "get": {
-        "description": "Get the artist based on Id.",
+        "description": "",
         "tags": 
-          ["Artists"],
+        ["Artists"],
         "produces": [
           "application/json"
         ],
@@ -90,16 +87,13 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       },
       "put": {
-        "description": "Update an artist based on Id.",
+        "description": "",
         "tags": 
-          ["Artists"],
+        ["Artists"],
         "parameters": [
           {
             "name": "id",
@@ -127,21 +121,15 @@
           "204": {
             "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "Delete an artist based on Id.",
+        "description": "",
         "tags": 
-          ["Artists"],
+        ["Artists"],
         "parameters": [
           {
             "name": "id",
@@ -153,9 +141,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
@@ -165,7 +150,7 @@
     },
     "/albums/": {
       "get": {
-        "description": "Get all albums.",
+        "description": "",
         "tags": 
           ["Albums"],
         "produces": [
@@ -178,9 +163,9 @@
         }
       },
       "post": {
-        "description": "Create/Insert a new album.",
+        "description": "",
         "tags": 
-          ["Albums"],
+        ["Albums"],
         "parameters": [
           {
             "name": "body",
@@ -219,9 +204,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "412": {
-            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -231,9 +213,9 @@
     },
     "/albums/{id}": {
       "get": {
-        "description": "Get the album based on Id.",
+        "description": "",
         "tags": 
-          ["Albums"],
+        ["Albums"],
         "produces": [
           "application/json"
         ],
@@ -248,14 +230,11 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       },
       "put": {
-        "description": "Update an album based on Id.",
+        "description": "",
         "tags": 
           ["Albums"],
         "parameters": [
@@ -303,21 +282,15 @@
           "204": {
             "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "Delete an album based on Id.",
+        "description": "",
         "tags": 
-          ["Albums"],
+        ["Albums"],
         "parameters": [
           {
             "name": "id",
@@ -330,9 +303,6 @@
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -341,7 +311,7 @@
     },
     "/songs/": {
       "get": {
-        "description": "Get all songs.",
+        "description": "",
         "tags": 
           ["Songs"],
         "produces": [
@@ -354,7 +324,7 @@
         }
       },
       "post": {
-        "description": "Create/Insert a new song.",
+        "description": "",
         "tags": 
           ["Songs"],
         "parameters": [
@@ -384,9 +354,6 @@
           "201": {
             "description": "Created"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -395,7 +362,7 @@
     },
     "/songs/{id}": {
       "get": {
-        "description": "Get the song based on Id.",
+        "description": "",
         "tags": 
           ["Songs"],
         "produces": [
@@ -412,14 +379,11 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       },
       "put": {
-        "description": "Update an song based on Id.",
+        "description": "",
         "tags": 
           ["Songs"],
         "parameters": [
@@ -455,21 +419,15 @@
           "204": {
             "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "Delete a song based on Id.",
+        "description": "",
         "tags": 
-          ["Songs"],
+        ["Songs"],
         "parameters": [
           {
             "name": "id",
@@ -481,9 +439,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"

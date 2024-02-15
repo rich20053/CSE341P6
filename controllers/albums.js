@@ -1,4 +1,3 @@
-const { isNull } = require('util');
 const mongodb = require('../models/connect');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -17,6 +16,7 @@ const getAll = async (req, res, next) => {
 const getSingle = async (req, res, next) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid contact id to update a contact");
+    return;
   }
 
   const userId = new ObjectId(req.params.id);
@@ -34,43 +34,26 @@ const createAlbum = async (req, res, next) => {
   var artistId = new ObjectId;
 
   /*
-  // Find the artist
+  // Find the artist by name
   if (typeof req.body.artist != "undefined") {
     console.log("artist block");
     const artist = req.body.artist;
-    console.log(artist);
+
     var myCursor = await mongodb.getDb().db("music").collection('artists').find({ name: artist });
-    console.log("cursor");
-    console.log(myCursor);
-    console.log('myCursor.toArray()');
-    console.log(myCursor.toArray());
-    console.log('myCursor.hasNext()');
-    console.log(myCursor.hasNext());
-    console.log('myCursor.next()');
-    console.log(myCursor.next());
     var myDocumentList = myCursor.toArray();
-    console.log(myDocumentList.length);
+
     var myDocument = myDocumentList[0];
-    console.log("myDocument");
-    console.log(myDocument);
+
     if (typeof myDocument != "undefined") {
-      console.log("myDocument not undefined");
-      console.log(myDocument);
-      console.log("artist_id");
-      console.log(myDocument);
       artistId = new ObjectId(myDocument.artist_id);
-      console.log("reset artistId");
-      console.log(artistId);
     }
-    console.log("0");
-    console.log(artistId);  
   }
   else {
     */
+    // Use artist id
     artistId = new ObjectId(req.body.artist_id);
   //}
 
-  //console.log("1");
   // Create an album
   const album = {
     title: req.body.title,
@@ -82,12 +65,9 @@ const createAlbum = async (req, res, next) => {
     mins: req.body.mins,
     discnbr: req.body.discnbr
   };
-  //console.log("2");
-  //console.log(album);
 
   // Save Album in the database
   const result = await mongodb.getDb().db("music").collection('albums').insertOne(album);
-  //console.log("3");
 
   if (result.acknowledged) {
     res.status(201).json(result);
@@ -100,6 +80,7 @@ const createAlbum = async (req, res, next) => {
 const updateAlbumById = async (req, res, next) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid contact id to update a contact");
+    return;
   }
 
   const userId = new ObjectId(req.params.id);
@@ -130,6 +111,7 @@ const updateAlbumById = async (req, res, next) => {
 const deleteAlbum = async (req, res, next) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid contact id to update a contact");
+    return;
   }
 
   const userId = new ObjectId(req.params.id);
