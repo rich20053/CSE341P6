@@ -28,7 +28,7 @@ const albumCheck = async (req, res, next) => {
       "media": "required|string",
       "genre": "required|string",
       "year": "required|integer",
-      "tracks": "required|integer",
+      "tracks": "integer",
       "mins": "integer",
       "discnbr": "integer"
     };
