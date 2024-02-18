@@ -5,7 +5,7 @@ const doc = {
     title: 'Music API',
     description: 'API for My Music Collection'
   },
-  host: 'week5service.onrender.com',
+  host: 'week6service.onrender.com',
   //host: 'localhost:8080',
   schemes: [
     'https'
